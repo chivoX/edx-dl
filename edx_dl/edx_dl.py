@@ -59,7 +59,7 @@ from .utils import (
 
 OPENEDX_SITES = {
     'consensys': {
-        'url': 'https://courses.consensys.net/',
+        'url': 'https://courses.consensys.net',
         'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
     },
     'edx': {
