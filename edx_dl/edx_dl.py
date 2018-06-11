@@ -58,6 +58,10 @@ from .utils import (
 
 
 OPENEDX_SITES = {
+    'consensys': {
+        'url': 'https://courses.consensys.net/',
+        'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
+    },
     'edx': {
         'url': 'https://courses.edx.org',
         'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
@@ -95,11 +99,11 @@ OPENEDX_SITES = {
         'courseware-selector': ('nav', {'aria-label': 'Course Navigation'}),
     }
 }
-BASE_URL = OPENEDX_SITES['edx']['url']
+BASE_URL = OPENEDX_SITES['consensys']['url']
 EDX_HOMEPAGE = BASE_URL + '/login_ajax'
 LOGIN_API = BASE_URL + '/login_ajax'
 DASHBOARD = BASE_URL + '/dashboard'
-COURSEWARE_SEL = OPENEDX_SITES['edx']['courseware-selector']
+COURSEWARE_SEL = OPENEDX_SITES['consensys']['courseware-selector']
 
 
 def change_openedx_site(site_name):
@@ -1006,12 +1010,12 @@ def main():
     # Parse the sections and build the selections dict filtered by sections
     if args.platform == 'edx':
         all_selections = {selected_course:
-                          get_available_sections(selected_course.url.replace('info', 'course'), 
+                          get_available_sections(selected_course.url.replace('info', 'course'),
                                                  headers)
                           for selected_course in selected_courses}
     else:
         all_selections = {selected_course:
-                          get_available_sections(selected_course.url.replace('info', 'courseware'), 
+                          get_available_sections(selected_course.url.replace('info', 'courseware'),
                                                  headers)
                           for selected_course in selected_courses}
 
